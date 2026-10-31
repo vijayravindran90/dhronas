@@ -5,6 +5,7 @@ The organization site for Dhronas. It is a static page (HTML, CSS and vanilla JS
 - `index.html`: the page content (vision, problems, products, use cases, contact, footer)
 - `styles.css`: the glass UI, aurora background, animations and responsive layout
 - `script.js`: scroll reveals, 3D tilt, parallax, magnetic buttons, use-case filter and the contact form (which opens `mailto:`)
+- `trust/index.html`: the Dhronas Educational and Medical Trust page, served at `/trust/`. Testimonial placeholders are marked with a comment showing the format.
 - `CNAME`: the custom domain for GitHub Pages
 
 ## Run locally

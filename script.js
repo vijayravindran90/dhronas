@@ -68,7 +68,10 @@
   /* ---------- Nav: scrolled state, progress, active link ---------- */
   const nav = document.getElementById("nav");
   const links = [...document.querySelectorAll(".nav-links a")];
-  const sections = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const sections = links
+    .filter((a) => a.getAttribute("href").startsWith("#"))
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
   let ticking = false;
   const onScroll = () => {
     const y = window.scrollY;
@@ -124,7 +127,7 @@
     // Hero parallax on floating cards
     const hero = document.querySelector("[data-parallax-root]");
     const cards = hero ? [...hero.querySelectorAll("[data-depth]")] : [];
-    document.querySelector(".hero").addEventListener("pointermove", (e) => {
+    document.querySelector(".hero")?.addEventListener("pointermove", (e) => {
       const cx = e.clientX / window.innerWidth - 0.5;
       const cy = e.clientY / window.innerHeight - 0.5;
       cards.forEach((c) => {
@@ -153,6 +156,7 @@
   const pill = document.querySelector(".tab-pill");
   const cases = [...document.querySelectorAll(".case")];
   const movePill = (btn) => {
+    if (!pill || !btn) return;
     pill.style.width = btn.offsetWidth + "px";
     pill.style.transform = `translate(${btn.offsetLeft}px, ${btn.offsetTop - 5}px)`;
   };
@@ -167,10 +171,19 @@
   window.addEventListener("resize", () => movePill(selected()));
   document.fonts && document.fonts.ready.then(() => movePill(selected()));
 
+  /* ---------- Expandable focus areas (trust page) ---------- */
+  document.querySelectorAll(".area-head").forEach((head) => {
+    head.addEventListener("click", () => {
+      const open = head.getAttribute("aria-expanded") !== "true";
+      head.setAttribute("aria-expanded", open);
+      head.closest(".area").classList.toggle("open", open);
+    });
+  });
+
   /* ---------- Contact form -> email ---------- */
   const form = document.getElementById("contact-form");
   const note = document.getElementById("form-note");
-  form.addEventListener("submit", (e) => {
+  form?.addEventListener("submit", (e) => {
     e.preventDefault();
     let ok = true;
     form.querySelectorAll("[required]").forEach((f) => {
