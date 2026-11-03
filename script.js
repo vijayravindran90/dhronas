@@ -180,6 +180,23 @@
     });
   });
 
+  /* ---------- Flip cards: painting on the front, its story on the back ---------- */
+  document.querySelectorAll(".art-card").forEach((card) => {
+    const front = card.querySelector(".art-front");
+    const back = card.querySelector(".art-back");
+    const openBtn = front.querySelector(".art-turn");
+    const closeBtn = back.querySelector(".back-btn");
+    const flip = (toBack) => {
+      card.classList.toggle("flipped", toBack);
+      front.inert = toBack;
+      back.inert = !toBack;
+      openBtn.setAttribute("aria-expanded", toBack);
+      (toBack ? closeBtn : openBtn).focus({ preventScroll: true });
+    };
+    openBtn.addEventListener("click", () => flip(true));
+    closeBtn.addEventListener("click", () => flip(false));
+  });
+
   /* ---------- Contact form -> email ---------- */
   const form = document.getElementById("contact-form");
   const note = document.getElementById("form-note");

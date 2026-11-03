@@ -772,3 +772,43 @@ h1 em .w > span, h2 em .w > span {
   .floral-hero { width: 46vw; opacity: 0.75; }
   .floral-foot { width: 52vw; opacity: 0.85; }
 }
+
+/* ============ Arts: flip gallery ============ */
+.flip-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; align-items: start; }
+.art-card { perspective: 1600px; }
+.art-inner { display: grid; transform-style: preserve-3d; transition: transform .9s var(--ease); }
+.art-card.flipped .art-inner { transform: rotateY(180deg); }
+.art-face { grid-area: 1 / 1; border-radius: 22px; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+/* backdrop blur breaks 3D flips in some browsers, so these faces use a solid paper tone */
+.arts-page .art-face.glass { -webkit-backdrop-filter: none; backdrop-filter: none; background: linear-gradient(160deg, #fffdf9, #fbf3e7); }
+.art-back { transform: rotateY(180deg); display: flex; flex-direction: column; padding: 28px 26px 24px; }
+.art-turn { font: inherit; color: inherit; cursor: pointer; }
+.art-front .art-turn { display: block; width: 100%; padding: 12px; text-align: left; background: none; border: 0; border-radius: inherit; }
+.art-frame { display: grid; place-items: center; aspect-ratio: 4 / 5; padding: 16px; border-radius: 14px; overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 40%, #ffffff, #f2e6d4); box-shadow: inset 0 0 0 1px rgba(184, 134, 43, 0.18); }
+.art-frame img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 3px;
+  box-shadow: 0 14px 28px -12px rgba(59, 20, 48, 0.45); transition: transform .6s var(--ease); }
+.art-turn:hover .art-frame img { transform: scale(1.03); }
+.art-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 6px 4px; }
+.art-meta strong { display: block; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+.art-meta small { display: block; font-size: 13px; color: var(--ink-3); }
+.turn-hint { flex: none; font-size: 13px; font-weight: 600; color: #8a5a12; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(184, 134, 43, 0.45); transition: background .3s, color .3s; }
+.turn-hint i, .back-btn i { display: inline-block; font-style: normal; transition: transform .5s var(--ease); }
+.art-turn:hover .turn-hint { background: #3b1430; color: #fff8ef; border-color: #3b1430; }
+.art-turn:hover i { transform: rotate(-180deg); }
+.art-back .story-mark { height: 40px; }
+.art-back h3 { margin: 0 0 12px; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 32px; letter-spacing: -0.01em; color: var(--ink); }
+.art-back p { margin: 0 0 12px; font-size: 15.5px; line-height: 1.65; color: var(--ink-2); }
+.story-sign { margin: 6px 0 18px; font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--gold); }
+.back-btn { align-self: flex-start; margin-top: auto; padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--ink);
+  background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(184, 134, 43, 0.5); transition: background .3s, color .3s; }
+.back-btn:hover { background: #3b1430; color: #fff8ef; }
+
+@media (max-width: 1024px) { .flip-gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .flip-gallery { grid-template-columns: 1fr; } }
+/* equal-height cards: the painting area grows to match the longest story in the row */
+.flip-gallery { align-items: stretch; }
+.art-card, .art-inner { display: grid; }
+.art-front { display: flex; }
+.art-front .art-turn { display: flex; flex-direction: column; }
+.art-frame { flex: 1 0 auto; }

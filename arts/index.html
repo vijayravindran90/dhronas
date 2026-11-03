@@ -10,6 +10,7 @@
   <meta property="og:title" content="DHRONAS Art Studio" />
   <meta property="og:description" content="Original, hand-painted canvas art from Chennai." />
   <meta property="og:url" content="https://dhronas.com/arts/" />
+  <meta property="og:image" content="https://dhronas.com/arts/images/shiva-shakti.jpg" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://dhronas.com/arts/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -103,45 +104,74 @@
       </div>
     </section>
 
-    <!-- GALLERY: replace each placeholder <figure> with a real artwork when photos are ready.
-         Format: put the image in /arts/images/ and use
-         <figure class="art glass reveal">
-           <div class="art-canvas"><img src="/arts/images/FILE.jpg" alt="Short description of the painting" loading="lazy" /></div>
-           <figcaption><strong>Title</strong><small>Acrylic on canvas · 24 × 36 in</small></figcaption>
-         </figure> -->
+    <!-- GALLERY: to add a painting, put a cropped photo in /arts/images/ and copy one
+         <article class="art-card"> block below. Change the image, alt text, title,
+         story text and the two matching ids (aria-controls and id="story-..."). -->
     <section class="section" id="gallery">
       <div class="wrap">
         <p class="eyebrow reveal">Gallery</p>
-        <h2 class="split" data-split>The collection, <em>coming to life.</em></h2>
+        <h2 class="split" data-split>Every painting <em>has a story.</em></h2>
         <p class="section-lead reveal">
-          New canvases are being photographed for the gallery. Until then, see the latest work on
+          Turn a painting over to read the story behind it. More new work is on
           <a class="text-link" href="https://www.instagram.com/dhronas.artstudio/" target="_blank" rel="noopener noreferrer">Instagram @dhronas.artstudio ↗</a>
         </p>
-        <div class="gallery">
-          <figure class="art placeholder glass reveal" style="--d: .05s">
-            <div class="art-canvas"><div class="paint p2"></div><span class="soon">Artwork coming soon</span></div>
-            <figcaption><strong>Canvas painting</strong><small>Photo coming soon</small></figcaption>
-          </figure>
-          <figure class="art placeholder glass reveal tall" style="--d: .12s">
-            <div class="art-canvas"><div class="paint p3"></div><span class="soon">Artwork coming soon</span></div>
-            <figcaption><strong>Canvas painting</strong><small>Photo coming soon</small></figcaption>
-          </figure>
-          <figure class="art placeholder glass reveal" style="--d: .19s">
-            <div class="art-canvas"><div class="paint p4"></div><span class="soon">Artwork coming soon</span></div>
-            <figcaption><strong>Canvas painting</strong><small>Photo coming soon</small></figcaption>
-          </figure>
-          <figure class="art placeholder glass reveal" style="--d: .05s">
-            <div class="art-canvas"><div class="paint p5"></div><span class="soon">Artwork coming soon</span></div>
-            <figcaption><strong>Canvas painting</strong><small>Photo coming soon</small></figcaption>
-          </figure>
-          <figure class="art placeholder glass reveal" style="--d: .12s">
-            <div class="art-canvas"><div class="paint p6"></div><span class="soon">Artwork coming soon</span></div>
-            <figcaption><strong>Canvas painting</strong><small>Photo coming soon</small></figcaption>
-          </figure>
-          <figure class="art placeholder glass reveal tall" style="--d: .19s">
-            <div class="art-canvas"><div class="paint p7"></div><span class="soon">Artwork coming soon</span></div>
-            <figcaption><strong>Canvas painting</strong><small>Photo coming soon</small></figcaption>
-          </figure>
+        <div class="flip-gallery">
+          <article class="art-card reveal" style="--d: .05s">
+            <div class="art-inner">
+              <div class="art-face art-front glass">
+                <button class="art-turn" type="button" aria-expanded="false" aria-controls="story-shiva-shakti">
+                  <span class="art-frame"><img src="/arts/images/shiva-shakti.jpg" alt="Painting of a blue hand with three ash lines, rudraksha beads and a small damaru, holding a woman's hand with red bangles, on a glowing orange background" width="1100" height="791" loading="lazy" /></span>
+                  <span class="art-meta"><span><strong>Hand in Hand</strong><small>Canvas painting</small></span><span class="turn-hint">Read its story <i aria-hidden="true">↻</i></span></span>
+                </button>
+              </div>
+              <div class="art-face art-back glass" id="story-shiva-shakti" inert>
+                <span class="story-mark" aria-hidden="true">“</span>
+                <h3>Hand in Hand</h3>
+                <p>I've always believed love isn't about holding on tightly, but about holding on together. His hand carries ash and rudraksha, the quiet strength of stillness. Hers wears red bangles and the warmth of everyday life. A tiny damaru swings between them, keeping time. Neither pulls, and neither lets go.</p>
+                <p>I painted the sky in sunset orange because that's the colour devotion feels like to me. This is my small prayer for everyone who walks through life hand in hand.</p>
+                <span class="story-sign">With love, Kavi</span>
+                <button class="art-turn back-btn" type="button">See the painting <i aria-hidden="true">↺</i></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal" style="--d: .12s">
+            <div class="art-inner">
+              <div class="art-face art-front glass">
+                <button class="art-turn" type="button" aria-expanded="false" aria-controls="story-roses-and-wings">
+                  <span class="art-frame"><img src="/arts/images/roses-and-wings.jpg" alt="Framed portrait of a dark-haired woman surrounded by deep red roses and bright blue butterflies" width="894" height="1100" loading="lazy" /></span>
+                  <span class="art-meta"><span><strong>Roses &amp; Wings</strong><small>Canvas painting</small></span><span class="turn-hint">Read its story <i aria-hidden="true">↻</i></span></span>
+                </button>
+              </div>
+              <div class="art-face art-back glass" id="story-roses-and-wings" inert>
+                <span class="story-mark" aria-hidden="true">“</span>
+                <h3>Roses &amp; Wings</h3>
+                <p>Some of us bloom quietly, in the dark. I surrounded her with deep red roses and blue butterflies so her stillness would feel full of life, never lonely. Every butterfly is a small hope that found its way to her.</p>
+                <p>Her gaze holds something unsaid, and I'll let you decide what it is. When I look at her, I'm reminded that softness and strength often wear the same face.</p>
+                <span class="story-sign">With love, Kavi</span>
+                <button class="art-turn back-btn" type="button">See the painting <i aria-hidden="true">↺</i></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="art-card reveal" style="--d: .19s">
+            <div class="art-inner">
+              <div class="art-face art-front glass">
+                <button class="art-turn" type="button" aria-expanded="false" aria-controls="story-salangai">
+                  <span class="art-frame"><img src="/arts/images/salangai.jpg" alt="Framed painting of a dancer's foot on tiptoe, wearing ankle bells and a patterned anklet, the foot painted with red alta, on a teal background" width="931" height="1100" loading="lazy" /></span>
+                  <span class="art-meta"><span><strong>Salangai</strong><small>Canvas painting</small></span><span class="turn-hint">Read its story <i aria-hidden="true">↻</i></span></span>
+                </button>
+              </div>
+              <div class="art-face art-back glass" id="story-salangai" inert>
+                <span class="story-mark" aria-hidden="true">“</span>
+                <h3>Salangai</h3>
+                <p>Before the music begins, there's a moment when a dancer rises onto her toes and the salangai at her ankle waits to sing. I wanted to hold that breath, the one just before the first beat.</p>
+                <p>The red alta, the patterned anklet, the teal around her like still water: each detail is my tribute to the grace of classical dance. May she remind you to step into every day the same way, with rhythm and with heart.</p>
+                <span class="story-sign">With love, Kavi</span>
+                <button class="art-turn back-btn" type="button">See the painting <i aria-hidden="true">↺</i></button>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
